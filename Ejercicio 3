@@ -1,67 +1,78 @@
 struct Ram {
 
 var almacenamiento = 0
-var fabricante : String
-var rgb : Bool
+var fabricante : String = ""
+var rgb = false
 
 }
 
 struct Procesador {
 
-var velocidad : Double
+var velocidad : Double = 0.0
 var cores = 0
 var hilos = 0
-var fabricante : String
+var fabricante : String = ""
 
 }
 
 struct Almacenamiento {
 
 var capacidad = 0
-var fabricante : String
-var tipo : String
+var fabricante : String = ""
+var tipo : String = ""
 
 }
 
 struct Grafica {
 
-var ram = 0
-var consumo : Double
-var cudaCores : Int
-var velocidad : Double
+var ram : Int = 0
+var consumo : Double = 0.0
+var cudaCores : Int = 0
+var velocidad : Double = 0.0
 
 }
 
 struct Ordenador {
 
 var precio = 0
-var nombre : String
-var ram = [Ram()]
+var nombre : String = ""
+var listaRam : Array<Ram> = []
 var proce = Procesador()
-var uniAlmac = [Almacenamiento()]
-var grafica = Grafica()
+var listaAlmac : Array<Almacenamiento> = []
+var grafica : Grafica
 
 }
 
-var pc = Ordenador()
-pc.precio = 1000
-pc.nombre = "Casa"
+
+var precio = 1000
+
+var nombre = "Casa"
+
+var listaRam: Array<Ram> = []
 
 var ram1 = Ram(almacenamiento: 8, fabricante: "Samsung", rgb: true)
 
 var ram2 = Ram(almacenamiento: 8, fabricante: "Perrón", rgb: true)
 
+listaRam.append(ram1)
+listaRam.append(ram2)
+
 var proce = Procesador(velocidad: 2.7, cores: 8, hilos: 16,fabricante: "Intel")
+
+var listaAlmac: Array<Almacenamiento> = []
 
 var unidad1 = Almacenamiento(capacidad: 256, fabricante: "Propano", tipo: "SSD")
 
 var unidad2 = Almacenamiento(capacidad: 512, fabricante: "Pornpano", tipo: "SSD")
 
+listaAlmac.append(unidad1)
+listaAlmac.append(unidad2)
+
 var grafica = Grafica(ram: 16, consumo: 89, cudaCores: 40,velocidad: 56.4)
 
-pc.ram.append(ram1, ram2)
-pc.proce = proce
-pc.uniAlmac.append(unidad1, unidad2)
-pc.grafica = grafica
+var pc = Ordenador(precio: precio, nombre: nombre, listaRam: listaRam, proce: proce, listaAlmac: listaAlmac, grafica: grafica)
 
-dump(pc)
+/*
+El print con structs funciona bien, si se usa class solo se puede mostrar con dump
+*/
+print(pc)
