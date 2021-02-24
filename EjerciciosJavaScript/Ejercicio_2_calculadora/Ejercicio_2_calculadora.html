@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio_2_calculadora</title>
+    <script type="text/javascript" src="JSON/matematicas.js"></script>
+    <!-- No llamar a todos los elementos igual, aunque sean nombres o valores 
+        o ids, ya que se pone mu nervioso
+    Se pueden comparar ids en el script, los ids pueden venir del body -->
+    <script>
+
+        function operar() {
+
+            nume1 = parseInt(num1.value)
+            nume2 = parseInt(num2.value)
+
+            if(sum.checked) {
+                resultado.value = sumar(nume1, nume2)
+
+            }else if(rest.checked) {
+                resultado.value = restar(nume1, nume2)
+
+            }else if(mult.checked) {
+                resultado.value = multiplicar(nume1, nume2)
+
+            }else if(divid.checked) {
+                resultado.value = dividir(nume1, nume2)
+
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <div style="text-align: center;">
+
+        Primer Número <input type="number" id="num1" value="0"/>
+        <br/>
+        Segundo Número <input type="number" id="num2" value="0"/>
+        <br/>
+        <br/>
+        <input type="radio" value="sum" name="calcular" id="sum"/>SUMAR
+        <input type="radio" value="rest" name="calcular" id="rest"/>RESTAR
+        <input type="radio" value="mult" name="calcular" id="mult"/>MULTIPLICAR
+        <input type="radio" value="divid" name="calcular" id="divid"/>DIVIDIR
+        <br/>
+        <br/>
+        <button id="operar" onclick="operar()">Operar</button>
+        <br/>
+        <br/>
+        Resultado:<input type="text" id="resultado"value="0" disabled/>
+    </div>
+
+</body>
+</html>
